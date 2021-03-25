@@ -53,6 +53,9 @@ class Airplane {
       this.poop = function (){
         this.stomach = [];
       }
+      this.toString = function(){
+        return `${this.name}, ${this.age}`;
+      }
     }
   }
   
@@ -71,7 +74,22 @@ class Airplane {
   */
   
  class Car {
-    
+   constructor(model, milesPerGallon){
+     this.model = model;
+     this.milesPerGallon = milesPerGallon;
+     this.tank = 0;
+     this.odometer = 0;
+   }
+  }
+
+  Car.prototype.fill = function(gallons){
+    if(this.tank === 0)
+    this.tank.push(gallons);
+  }
+  Car.prototype.drive = function(miles){
+    if(this.odometer === 0){
+      this.odometer.push(miles);
+    }
   }
   
   /*
