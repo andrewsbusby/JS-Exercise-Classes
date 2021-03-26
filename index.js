@@ -46,18 +46,20 @@ class Airplane {
       this.name = name;
       this.age = age;
       this.stomach = [];
-      this.eat = function(food){
+    }
+      eat(food){
         if(this.stomach.length < 10)
         this.stomach.push(food);
-      }
-      this.poop = function (){
-        this.stomach = [];
-      }
-      this.toString = function(){
+      };
+      poop(){
+        if(this.stomach.length === 10)
+        this.stomach.pop(food);
+      };
+      toString() {
         return `${this.name}, ${this.age}`;
       }
     }
-  }
+  
   
   /*
     TASK 2
@@ -81,7 +83,7 @@ class Airplane {
      this.odometer = 0;
    }
    fill(gallons){
-    this.tak = this.tank + gallons;
+    this.tank = this.tank + gallons;
   }
   drive(miles){
     const drivableMiles = this.tank * this.milesPerGallon;
@@ -93,10 +95,7 @@ class Airplane {
       this.tank = 0;
       return `I ran out of fuel at ${this.odometer} miles`;
     }
-  }
-
- 
-  
+  } 
     }
   
   
@@ -144,7 +143,7 @@ class Airplane {
   constructor(param){
       super(param);
       this.specialty = param.specialty;
-      this.favlanguage = 'JavaScript', 'Python', 'Elm ect';
+      this.favLanguage = param.favLanguage;
       this.catchPhrase = param.catchPhrase;
   }
   demo(subject){
@@ -200,8 +199,18 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+     constructor(arrg){
+       super(arrg);
+       this.gradClassName = arrg.gradClassName;
+       this.favInstructor = arrg.favInstructor;
+     }
+     standUp(channel){
+       return `${this.name} announces to ${channel}, @channel standy times!`
+     };
+     debugsCode(student, subject){
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
+     }
  }
   /*
     STRETCH PROBLEM (no tests!)
