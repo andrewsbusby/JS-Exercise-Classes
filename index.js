@@ -52,8 +52,7 @@ class Airplane {
         this.stomach.push(food);
       };
       poop(){
-        if(this.stomach.length === 10)
-        this.stomach.pop(food);
+        this.stomach = [];
       };
       toString() {
         return `${this.name}, ${this.age}`;
